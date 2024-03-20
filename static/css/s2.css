@@ -117,7 +117,8 @@ a, a:hover {
 
   /* colors */
   --inline-link-blue: #4871bf;
-  --sefaria-blue: #18345D;
+  /* --sefaria-blue: #18345D; */
+  --sefaria-blue: #f6dc1f;
   --highlight-blue: #DDEEFF;
   --highlight-blue-light: #F0F7FF;
   --beit-midrash-grey: #333333;
@@ -1856,7 +1857,8 @@ div.interfaceLinks-row a {
   margin: 12px 0 0 0;
 }
 .navSidebarModule .button img {
-  filter: invert(1);
+  /* filter: invert(1); */
+  filter: invert(15%) sepia(1%) saturate(2789%) hue-rotate(2deg) brightness(91%) contrast(82%);
   height: 18px;
   width: 18px;
   margin-inline-end: 10px;
@@ -1890,7 +1892,8 @@ div.interfaceLinks-row a {
   size: 16px;
 }
 .navSidebar .button.get-start img {
-  filter: unset;
+  /* filter: unset; */
+  filter: invert(15%) sepia(1%) saturate(2789%) hue-rotate(2deg) brightness(91%) contrast(82%);
 }
 .navSidebar .readingsSection {
   margin-bottom: 15px;
@@ -3255,7 +3258,8 @@ display: none;
   text-align: center;
   cursor: pointer;
   color: white;
-  background: #212E50;
+  /* background: #212E50; */
+  background: #f6dc1f;
   padding: 4px 10px;
   border-radius: 3px;
   margin: 10px auto 0;
@@ -3876,8 +3880,10 @@ select {
 }
 .modTools a .modtoolsButton,
 .bookPage .content a .versionDownloadButton {
-    border-color: #212E50;
-    background-color: #212E50;
+    /* border-color: #212E50;
+    background-color: #212E50; */
+    border-color: #f6dc1f;
+    background-color: #f6dc1f;
 }
 .modTools .workflowy-tool{
   width: 60%;
@@ -7534,7 +7540,8 @@ But not to use a display block directive that might break continuous mode for ot
 }
 .button {
   display: inline-block;
-  color: white;
+  /* color: white; */
+  color: #353432;
   background-color: var(--sefaria-blue);
   box-shadow: 0 1px 3px rgba(0,0,0,0.25);
   border-radius: 6px;
@@ -7563,11 +7570,13 @@ But not to use a display block directive that might break continuous mode for ot
   cursor: initial;
 }
 a.button {
-  color: white;
+  /* color: white; */
+  color: #353432;
 }
 .button:hover,
 a.button:hover {
-  color: white;
+  /* color: white; */
+  color: #353432;
   text-decoration: none;
 }
 .button.white {
@@ -9435,7 +9444,8 @@ body #keyboardInputMaster tbody tr td table tbody tr td.pressed{
   cursor: pointer;
 }
 .versionsBox a.selectButton.currSelectButton:not(.version-with-preview-title-line .selectButton) {
-  background-color: #212E50;
+  /* background-color: #212E50; */
+  background-color: #f6dc1f;
   text-decoration: none;
   cursor: default;
   line-height: 20px;
@@ -10069,7 +10079,8 @@ background-color: white;
   position: fixed;
   z-index: 9999;
   color: white;
-  background-color: #212E50;
+  /* background-color: #212E50; */
+  background-color: #f6dc1f;
   border-top: 1px solid #ccc;
   bottom: 0;
   box-sizing: border-box;
@@ -11519,7 +11530,8 @@ body .homeFeedWrapper.userStats {
   background-color: var(--lightest-grey);
 }
 .button.small.addTopic {
-  background-color: #212E50;
+  /* background-color: #212E50; */
+  background-color: #f6dc1f;
   color: #FFFFFF;
   float: right;
   margin-right: 30px;

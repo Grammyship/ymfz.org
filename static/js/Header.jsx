@@ -39,9 +39,10 @@ class Header extends Component {
     if (this.props.hidden && !this.props.mobileNavMenuOpen) {
       return null;
     }
-    const logo = Sefaria.interfaceLang == "hebrew" ?
-      <img src="/static/img/logo-hebrew.png" alt="Sefaria Logo"/> :
-      <img src="/static/img/logo.svg" alt="Sefaria Logo"/>;
+    // const logo = Sefaria.interfaceLang == "hebrew" ?
+    //   <img src="/static/img/logo-hebrew.png" alt="Sefaria Logo"/> :
+    //   <img src="/static/img/logo.svg" alt="Sefaria Logo"/>;
+    const logo = <img src="/static/img/ymfz_logo.png" alt="ymfz Logo"/>
 
     const headerContent = (
       <>
