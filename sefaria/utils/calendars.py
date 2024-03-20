@@ -323,7 +323,11 @@ def get_parasha(datetime_obj, diaspora=True, parasha=None):
         # regex search for potential double parasha. there can be dash before or after name
         query["parasha"] = re.compile('(?:(?<=^)|(?<=-)){}(?=-|$)'.format(parasha))
     p = db.parshiot.find(query, limit=1).sort([("date", 1)])
-    p = next(p)
+    try:
+        newp = next(p)
+        p = newp
+    except:
+        pass
     return p
 
 
@@ -333,14 +337,16 @@ def get_todays_parasha(diaspora=True):
 
 @graceful_exception(logger=logger, return_value=[])
 def parashat_hashavua_and_haftara(datetime_obj, diaspora=True, custom=None, parasha=None, ret_type='list'):
-    db_parasha = get_parasha(datetime_obj, diaspora=diaspora, parasha=parasha)
-    parasha_item = make_parashah_response_from_calendar_entry(db_parasha)
-    haftarah_item = make_haftarah_response_from_calendar_entry(db_parasha, custom)
+    #db_parasha = get_parasha(datetime_obj, diaspora=diaspora, parasha=parasha)
+    #parasha_item = make_parashah_response_from_calendar_entry(db_parasha)
+    #haftarah_item = make_haftarah_response_from_calendar_entry(db_parasha, custom)
     if ret_type not in {'list', 'dict'}:
         raise Exception('ret_type parameter must be either "list" or "dict')
     if ret_type == 'list':
-        parasha_items = parasha_item + haftarah_item
+        #parasha_items = parasha_item + haftarah_item
+        parasha_items = []
     elif ret_type == 'dict':
+        """
         from sefaria.utils.util import get_hebrew_date
         he_date_in_english, he_date_in_hebrew = get_hebrew_date(db_parasha.get('date', None))
         parasha_items = {
@@ -352,12 +358,14 @@ def parashat_hashavua_and_haftara(datetime_obj, diaspora=True, custom=None, para
                 "he": he_date_in_hebrew
             }
         }
+        """
+        parasha_items = {}
     return parasha_items
 
 
 @graceful_exception(logger=logger, return_value=[])
 def hok_leyisrael(datetime_obj, diaspora=True):
-
+    """
     def get_hok_parasha(datetime_obj, diaspora=diaspora):
         parasha = get_parasha(datetime_obj, diaspora=diaspora)['parasha']
         parasha = parasha.replace('Lech-Lecha', 'Lech Lecha')
@@ -375,6 +383,14 @@ def hok_leyisrael(datetime_obj, diaspora=True):
         "title": {"en": "Chok LeYisrael", "he": 'חק לישראל'},
         "displayValue": {"en": parasha_term.name, "he": parasha_he},
         "url": f'collections/חק-לישראל?tag={urllib.parse.quote(parasha_term.name)}',
+        "order": 12,
+        "category": 'Tanakh'
+    }]
+    """
+    return [{
+        "title": {"en": "Chok LeYisrael", "he": 'חק לישראל'},
+        "displayValue": {"en": "parasha_term.name", "he": "parasha_he"},
+        "url": f'collections/חק-לישראל?tag={urllib.parse.quote("parasha_term.name")}',
         "order": 12,
         "category": 'Tanakh'
     }]
@@ -428,6 +444,7 @@ def get_all_calendar_items(datetime_obj, diaspora=True, custom="sephardi"):
     if not SITE_SETTINGS["TORAH_SPECIFIC"]:
         return []
     cal_items  = []
+    """
     cal_items += parashat_hashavua_and_haftara(datetime_obj, diaspora=diaspora, custom=custom)
     cal_items += daf_yomi(datetime_obj)
     cal_items += daily_929(datetime_obj)
@@ -443,6 +460,7 @@ def get_all_calendar_items(datetime_obj, diaspora=True, custom="sephardi"):
     cal_items += tanya_yomi(datetime_obj)
     cal_items += yerushalmi_yomi(datetime_obj)
     cal_items = [item for item in cal_items if item]
+    """
     return cal_items
 
 

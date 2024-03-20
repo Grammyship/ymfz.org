@@ -2962,7 +2962,7 @@ def background_data_api(request):
     # This is an API, its excluded from interfacelang middleware. There's no point in defaulting to request.interfaceLang here as its always 'english'.
 
     data = {}
-    data.update(community_page_data(request, language=language))
+    #data.update(community_page_data(request, language=language))
 
     return jsonResponse(data)
 

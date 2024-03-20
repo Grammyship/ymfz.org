@@ -373,18 +373,24 @@ const TranslationLinks = () => {
 
 const ParashahLink = () => {
   const parashah = Sefaria.calendars.filter(c => c.title.en === "Parashat Hashavua")[0];
-  return (
-    <div className="navSidebarLink ref serif">
-      <img src="/static/icons/book.svg" className="navSidebarIcon" alt="book icon" />
-      <a href={"/" + parashah.url}><InterfaceText text={{en: parashah.ref, he: parashah.heRef}} /></a>
-    </div>
-  );
+//  return (
+//    <div className="navSidebarLink ref serif">
+//      <img src="/static/icons/book.svg" className="navSidebarIcon" alt="book icon" />
+//      <a href={"/" + parashah.url}><InterfaceText text={{en: parashah.ref, he: parashah.heRef}} /></a>
+//    </div>
+//  );
+    return (
+      <div className="navSidebarLink ref serif">
+        <img src="/static/icons/book.svg" className="navSidebarIcon" alt="book icon" />
+      </div>
+    );
 };
 
 
 const ParashahName = () => {
   const parashah = Sefaria.calendars.filter(c => c.title.en === "Parashat Hashavua")[0];
-  return <InterfaceText text={parashah.displayValue} />
+  //return <InterfaceText text={parashah.displayValue} />
+  return <InterfaceText>No Parashah</InterfaceText>
 };
 
 
@@ -404,15 +410,20 @@ const HaftarotLinks = () => {
 
 const DafLink = () => {
   const daf = Sefaria.calendars.filter(c => c.title.en === "Daf Yomi")[0];
-  return (
-    <div className="navSidebarLink ref serif">
-      <img src="/static/icons/book.svg" className="navSidebarIcon" alt={Sefaria._("book icon")} />
-      <a href={"/" + daf.url}>
-        <InterfaceText text={daf.displayValue} />
-      </a>
-    </div>
+//  return (
+//    <div className="navSidebarLink ref serif">
+//      <img src="/static/icons/book.svg" className="navSidebarIcon" alt={Sefaria._("book icon")} />
+//      <a href={"/" + daf.url}>
+//        <InterfaceText text={daf.displayValue} />
+//      </a>
+//    </div>
+//  );
+    return (
+      <div className="navSidebarLink ref serif">
+        <img src="/static/icons/book.svg" className="navSidebarIcon" alt={Sefaria._("book icon")} />
+      </div>
   );
-}
+};
 
 const Translations = () => {
   return (<Module>
